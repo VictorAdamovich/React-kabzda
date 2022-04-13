@@ -6,9 +6,9 @@ import {Rating} from "./Raiting/Rating";
 function App() {
     return (
         <div className="App">
-            <AppTitle title='hello world'/>
-            <AppTitle title='hello me'/>
-            <Rating value={2}/>
+            {/*<AppTitle title='hello world'/>*/}
+            {/*<AppTitle title='hello me'/>*/}
+            {/*<Rating value={2}/>*/}
             <Accordion title={'atitle 1'} collapsed = {true}/>
             <Accordion title={'atitle 2'} collapsed = {false}/>
             <Rating value={0}/>
