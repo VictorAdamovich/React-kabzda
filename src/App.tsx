@@ -2,21 +2,31 @@ import React from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./Raiting/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
+import {SelfAcc} from "./components/SelfAccordion/SelfAcc";
+import {SelfRating} from "./SelfRaiting/SelfRating";
 
 function App() {
     return (
         <div className="App">
             {/*<AppTitle title='hello world'/>*/}
             {/*<AppTitle title='hello me'/>*/}
-            {/*<Rating value={2}/>*/}
-            <Accordion title={'atitle 1'} collapsed = {true}/>
-            <Accordion title={'atitle 2'} collapsed = {false}/>
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
+            {/*<SelfRating value={2}/>*/}
+            {/*<SelfAcc title={'atitle 1'} collapsed = {true}/>*/}
+            {/*<SelfAcc title={'atitle 2'} collapsed = {false}/>*/}
+            {/*<SelfRating value={0}/>*/}
+            {/*<SelfRating value={1}/>*/}
+            {/*<SelfRating value={2}/>*/}
+            {/*<SelfRating value={3}/>*/}
+            {/*<SelfRating value={4}/>*/}
+            {/*<SelfRating value={5}/>*/}
+            <OnOff on={false}/>
+            <OnOff on={true}/>
+            <OnOff on={false}/>
+            <SelfAcc title={'acc1'}/>
+            <SelfAcc title={'acc2'}/>
+            <SelfRating/>
+            <SelfRating/>
         </div>
     );
 }
