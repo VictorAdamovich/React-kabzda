@@ -1,36 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {UnControlledAccordion} from './components/Accordion/UnControlledAccordion';
-import {Rating} from './components/Rating/Rating';
-import {OnOf} from './components/OnOF';
+import {Rating, RatingValueType} from './components/Rating/Rating';
 import {SelfControlledAccardion} from './components/Accordion/SelfControlledAccordion';
 import {UnControllRating} from './components/Rating/UnControllRating';
+import {ControlledOnOff} from './components/OnOF/ControlledOnOff';
+import {OnOff} from './components/OnOF/OnOF';
 
 export function App() {
+    let [ratingValue, setRaitingValue] = useState<RatingValueType>(0);
+    let [collapsed,setCollapsed]=useState<boolean>(false)
+    let [on, setOn] = useState<boolean>(false);
+
     return (
         <div>
-            {/*<PageTitle title={'This is APP component'}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Accordion title={'Accordion 1'} collapsed={true}/>*/}
-            {/*<Accordion title={'Accordion 2'} collapsed={false}/>*/}
-            {/*<Rating value={3}/>*/}
-            <SelfControlledAccardion title={'SelfControlledAccordion1'} collapsed={true}/>
-            <SelfControlledAccardion title={'SelfControlledAccordion2'} collapsed={false}/>
+            <SelfControlledAccardion title={'SelfControlledAccordion1'} collapsed={collapsed} setCollapsed={setCollapsed}/>
+            ---
             <UnControlledAccordion title={'UnControlledAccordion'}/>
-            <Rating value={3}/>
+            ---
+            <Rating value={ratingValue} onClick={setRaitingValue}/>
+            ---
             <UnControllRating/>
-            <OnOf/>
+            ---
+            <OnOff onChange={setOn}/>
+            <ControlledOnOff on={on} setOn={setOn}/>
+
 
         </div>
     );
 }
 
 
-type PageTitlePropsType={
-    title:string
+type PageTitlePropsType = {
+    title: string
 }
 
-function PageTitle(props:PageTitlePropsType) {
+function PageTitle(props: PageTitlePropsType) {
     return (
         <div>{props.title}</div>
     );

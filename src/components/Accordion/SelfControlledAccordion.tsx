@@ -4,16 +4,19 @@ import React from 'react';
 type AccordionPropsType = {
     title: string
     collapsed: boolean
+    setCollapsed:(collapsed:boolean)=>void
 }
 
 type AccordionTitlePropsType = {
     title: string
+    collapsed: boolean
+    setCollapsed:(collapsed:boolean)=>void
 }
 
 export function SelfControlledAccardion(props: AccordionPropsType) {
     return (
         <div>
-            <AccordionTitle title={props.title}/>
+            <AccordionTitle title={props.title}  setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>
             {!props.collapsed && <AccordionBody/>}
         </div>
     );
@@ -21,7 +24,7 @@ export function SelfControlledAccardion(props: AccordionPropsType) {
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    return <h3>{props.title}</h3>;
+    return <h3 onClick={()=>props.setCollapsed(!props.collapsed)}>{props.title}</h3>;
 
 }
 
