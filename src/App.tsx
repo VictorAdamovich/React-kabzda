@@ -6,6 +6,7 @@ import {SelfControlledAccardion} from './components/Accordion/SelfControlledAcco
 import {UnControllRating} from './components/Rating/UnControllRating';
 import {ControlledOnOff} from './components/OnOF/ControlledOnOff';
 import {OnOff} from './components/OnOF/OnOF';
+import UnControlldeIntup from './components/Input/UnControlldeIntup';
 
 export function App() {
     let [ratingValue, setRaitingValue] = useState<RatingValueType>(0);
@@ -14,17 +15,17 @@ export function App() {
 
     return (
         <div>
-            <SelfControlledAccardion title={'SelfControlledAccordion1'} collapsed={collapsed} setCollapsed={setCollapsed}/>
-            ---
-            <UnControlledAccordion title={'UnControlledAccordion'}/>
-            ---
-            <Rating value={ratingValue} onClick={setRaitingValue}/>
-            ---
-            <UnControllRating/>
-            ---
-            <OnOff onChange={setOn}/>
-            <ControlledOnOff on={on} setOn={setOn}/>
-
+            {/*<SelfControlledAccardion title={'SelfControlledAccordion1'} collapsed={collapsed} setCollapsed={setCollapsed}/>*/}
+            {/*---*/}
+            {/*<UnControlledAccordion title={'UnControlledAccordion'}/>*/}
+            {/*---*/}
+            {/*<Rating value={ratingValue} onClick={setRaitingValue}/>*/}
+            {/*---*/}
+            {/*<UnControllRating/>*/}
+            {/*---*/}
+            {/*<OnOff onChange={setOn}/>*/}
+            {/*<ControlledOnOff on={on} setOn={setOn}/>*/}
+            <UnControlldeIntup/>
 
         </div>
     );
