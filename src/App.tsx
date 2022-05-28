@@ -7,6 +7,7 @@ import {UnControllRating} from './components/Rating/UnControllRating';
 import {ControlledOnOff} from './components/OnOF/ControlledOnOff';
 import {OnOff} from './components/OnOF/OnOF';
 import UnControlldeIntup from './components/Input/UnControlldeIntup';
+import {ControlldeIntup} from './components/Input/ControlldeIntup';
 
 export function App() {
     let [ratingValue, setRaitingValue] = useState<RatingValueType>(0);
@@ -25,8 +26,8 @@ export function App() {
             {/*---*/}
             {/*<OnOff onChange={setOn}/>*/}
             {/*<ControlledOnOff on={on} setOn={setOn}/>*/}
-            <UnControlldeIntup/>
-
+            {/*<UnControlldeIntup/>*/}
+            <ControlldeIntup/>
         </div>
     );
 }
