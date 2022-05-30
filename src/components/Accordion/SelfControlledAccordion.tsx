@@ -1,10 +1,14 @@
 import React from 'react';
 
 
-type AccordionPropsType = {
-    title: string
-    collapsed: boolean
-    setCollapsed:(collapsed:boolean)=>void
+type ItemType={
+    title:string
+    value:any
+}
+
+type AccordionBodyType={
+    items:ItemType[]
+    onClick:(value:string)=>void
 }
 
 type AccordionTitlePropsType = {
@@ -13,11 +17,22 @@ type AccordionTitlePropsType = {
     setCollapsed:(collapsed:boolean)=>void
 }
 
+type AccordionPropsType = {
+    title: string
+    collapsed: boolean
+    items:ItemType[]
+    setCollapsed:(collapsed:boolean)=>void
+    onClick:(value:string)=>void
+}
+
+
+
+
 export function SelfControlledAccardion(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={props.title}  setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
         </div>
     );
 
@@ -25,14 +40,11 @@ export function SelfControlledAccardion(props: AccordionPropsType) {
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     return <h3 onClick={()=>props.setCollapsed(!props.collapsed)}>{props.title}</h3>;
-
 }
 
-function AccordionBody() {
+function AccordionBody(props:AccordionBodyType) {
     return <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+        {props.items.map((el,i)=><li onClick={()=>props.onClick(el.value)} key={i}>{el.title}</li>)}
     </ul>;
 
 }

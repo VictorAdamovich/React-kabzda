@@ -8,37 +8,34 @@ import {ControlledOnOff} from './components/OnOF/ControlledOnOff';
 import {OnOff} from './components/OnOF/OnOF';
 import UnControlldeIntup from './components/Input/UnControlldeIntup';
 import {ControlldeIntup} from './components/Input/ControlldeIntup';
+import {Select} from './components/Select/Select';
 
 export function App() {
-    let [ratingValue, setRaitingValue] = useState<RatingValueType>(0);
+    // let [ratingValue, setRaitingValue] = useState<RatingValueType>(0);
     let [collapsed,setCollapsed]=useState<boolean>(false)
-    let [on, setOn] = useState<boolean>(false);
+    // let [on, setOn] = useState<boolean>(false);
+    const onClickCallback=(value:string)=>console.log(value)
+
+    let arr=[
+        {title:'Victor',value:1},
+        {title:'Pavel',value:2},
+        {title:'Bob',value:3},
+        {title:'Max',value:4}
+    ]
+
+    let [selectValue,setSelectValue]=useState<number>(1)
+
+    const onChangeSelect=(value:number)=>setSelectValue(value)
 
     return (
         <div>
-            {/*<SelfControlledAccardion title={'SelfControlledAccordion1'} collapsed={collapsed} setCollapsed={setCollapsed}/>*/}
-            {/*---*/}
-            {/*<UnControlledAccordion title={'UnControlledAccordion'}/>*/}
-            {/*---*/}
-            {/*<Rating value={ratingValue} onClick={setRaitingValue}/>*/}
-            {/*---*/}
-            {/*<UnControllRating/>*/}
-            {/*---*/}
-            {/*<OnOff onChange={setOn}/>*/}
-            {/*<ControlledOnOff on={on} setOn={setOn}/>*/}
-            {/*<UnControlldeIntup/>*/}
-            <ControlldeIntup/>
+            <Select
+                title={'hello'}
+                value={selectValue}
+                item={arr}
+                onChange={onChangeSelect}
+            />
         </div>
     );
 }
 
-
-type PageTitlePropsType = {
-    title: string
-}
-
-function PageTitle(props: PageTitlePropsType) {
-    return (
-        <div>{props.title}</div>
-    );
-}
