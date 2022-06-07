@@ -4,7 +4,7 @@ type OnOffPropsType = {
     onChange: (on: boolean) => void
 }
 
-export const OnOff = (props: OnOffPropsType) => {
+export const OnOffNoMemo = (props: OnOffPropsType) => {
     let [on, setOn] = useState(false);
 
     const onStyle = {
@@ -54,4 +54,6 @@ export const OnOff = (props: OnOffPropsType) => {
         </div>
     );
 };
+
+export const OnOff= React.memo(OnOffNoMemo);
 

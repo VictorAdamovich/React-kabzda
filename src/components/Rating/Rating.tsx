@@ -15,7 +15,7 @@ type RatingPropsType = {
     onClick: (value: RatingValueType) => void
 }
 
-export function Rating(props: RatingPropsType) {
+ function RatingNoMemo(props: RatingPropsType) {
     return (
         <div>
             <Star selected={props.value > 0} onClick={props.onClick} value={1}/>
@@ -30,3 +30,6 @@ export function Rating(props: RatingPropsType) {
 function Star(props: StarProps) {
     return <span onClick={() => props.onClick(props.value)}>{props.selected === true ? <b>Star </b> : 'Star'}</span>;
 }
+
+
+export default React.memo(RatingNoMemo);

@@ -7,7 +7,7 @@ type ControlledOnOffPropsType={
 }
 
 
-export const ControlledOnOff = (props:ControlledOnOffPropsType) => {
+export const ControlledOnOffNoMemo = (props:ControlledOnOffPropsType) => {
 
     const onStyle = {
         width: '30px',
@@ -47,4 +47,6 @@ export const ControlledOnOff = (props:ControlledOnOffPropsType) => {
         </div>
     );
 };
+
+export const ControlledOnOff= React.memo(ControlledOnOffNoMemo);
 

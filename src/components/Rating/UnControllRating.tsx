@@ -7,7 +7,7 @@ type StarProps = {
 }
 
 
-export function UnControllRating() {
+ function UnControllRating() {
     let [value, setValue] = useState<number>(0);
     return (
         <div>
@@ -23,3 +23,6 @@ export function UnControllRating() {
 function Star(props: StarProps) {
     return <span onClick={() => props.setValue()}>{props.selected === true ?<b>Star </b> :'Star' }</span>;
 }
+
+
+export default React.memo(UnControllRating);

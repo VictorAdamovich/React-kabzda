@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 
 
 type AccordionPropsType = {
@@ -11,12 +11,32 @@ type AccordionTitlePropsType = {
     setCollapsed:(collapsed:boolean)=>void
 }
 
-export function UnControlledAccordion(props: AccordionPropsType) {
-    let [collapsed, setCollapsed] = useState(false);
+type ActionType= ReturnType<typeof collapsedAC>
+
+const reducer=(state:boolean,action:ActionType)=>{
+    switch (action.type) {
+        case 'TOGGLE-COLLAPSED':{}
+            return !state
+    }
+    return state
+}
+
+const TOGGLE_COLLAPSED='TOGGLE-COLLAPSED'
+
+ const collapsedAC=()=>{
+    return{type:TOGGLE_COLLAPSED}
+ }
+
+export const UnControlledAccordion= React.memo(UnControlledAccordionNoMemo);
+
+ function UnControlledAccordionNoMemo(props: AccordionPropsType) {
+    // let [collapsed, setCollapsed] = useState(false);
+    let [collapsed, dispatch] = useReducer(reducer,false);
 
     return (
         <div>
-            <AccordionTitle title={props.title} setCollapsed={setCollapsed} collapsed={collapsed}/>
+            {/*<AccordionTitle title={props.title} setCollapsed={setCollapsed} collapsed={collapsed}/>*/}
+            <AccordionTitle title={props.title} setCollapsed={()=>dispatch(collapsedAC())} collapsed={collapsed}/>
             {!collapsed && <AccordionBody/>}
         </div>
     );

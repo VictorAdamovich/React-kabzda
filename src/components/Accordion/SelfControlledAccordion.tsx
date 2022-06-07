@@ -26,9 +26,9 @@ type AccordionPropsType = {
 }
 
 
+export const SelfControlledAccardion= React.memo(SelfControlledAccardionNoMemo)
 
-
-export function SelfControlledAccardion(props: AccordionPropsType) {
+ function SelfControlledAccardionNoMemo(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={props.title}  setCollapsed={props.setCollapsed} collapsed={props.collapsed}/>

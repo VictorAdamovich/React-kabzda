@@ -1,6 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
 
-export const ControlldeIntup = () => {
+
+
+
+
+const ControlldeIntupNoMemo = (props:any) => {
     const [value, setValue] = useState<string>('');
     const onChangeSetValue = (e: ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value);
     return (
@@ -11,6 +15,8 @@ export const ControlldeIntup = () => {
         </div>
     );
 };
+
+export const ControlldeIntup = React.memo(ControlldeIntupNoMemo);
 
 
 const CheckBoxIntut = () => {

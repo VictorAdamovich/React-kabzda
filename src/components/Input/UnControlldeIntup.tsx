@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 
-const UnControlldeIntup = () => {
+const UnControlldeIntupNoMemo = () => {
     const [value, setValue] = useState<string>('');
     return (
         <div>
@@ -31,4 +31,4 @@ const UnControlledInputRef = () => {
 ;
 
 
-export default UnControlldeIntup;
+export const UnControlldeIntup=React.memo(UnControlldeIntupNoMemo);
