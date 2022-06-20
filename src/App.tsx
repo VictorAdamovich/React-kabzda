@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {ReactMemo} from './components/MemoTest/ReactMemo';
 import RatingNoMemo from './components/Rating/Rating';
+import {ReactCallBack} from './components/MemoTest/LikeUseCallback';
 
 export function App() {
     // // let [ratingValue, setRaitingValue] = useState<RatingValueType>(0);
@@ -23,6 +24,7 @@ export function App() {
 
     return (
         <>
+            <ReactCallBack/>
         </>
     );
 }
